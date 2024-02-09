@@ -35,6 +35,7 @@ int replaceAtIdx(int arr[], int idx, int newNum)
 
 int resize(int arr[])
 {
+	
 	return 0;
 }
 
