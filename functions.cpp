@@ -20,7 +20,7 @@ int findIdxInArr(int arr[], int num)
 		if (arr[i] == num)
 			return i;
 	}
-	cout << "Value not found within array" << endl;
+	cout << "Error: Value not found within array." << endl;
 	return -2;
 }
 
