@@ -2,13 +2,15 @@
 
 using namespace std;
 
-void printArray(int arr[]) {
+//	prints the array
+void printArray(int arr[], int length) {
 	cout << "[ ";
-	for (int i = 0; i < sizeof(arr); i++)
+	for (int i = 0; i < length; i++)
 		cout << arr[i] << " ";
 	cout << "]" << endl;
 }
 
+//	finds the index of a number in the array
 int findIdxInArr(int arr[], int num)
 {
 	if (sizeof(arr) == 0)
@@ -18,9 +20,11 @@ int findIdxInArr(int arr[], int num)
 		if (arr[i] == num)
 			return i;
 	}
+	cout << "Value not found within array" << endl;
 	return -2;
 }
 
+//	replaces an index in the array with a specified integer
 int replaceAtIdx(int arr[], int idx, int newNum)
 {
 	if (sizeof(arr) == 0)
@@ -33,26 +37,42 @@ int replaceAtIdx(int arr[], int idx, int newNum)
 	return 0;
 }
 
-int resize(int arr[])
-{
-	
-	return 0;
-}
-
-int resizeAndAddToEnd(int arr[], int newNum)
-{
-	return 0;
-}
-
-int replaceWithZero(int arr[], int idx)
-{
-	if (sizeof(arr) == 0)
-		return -1;
-	arr[idx] = 0;
-	return 0;
-}
-
-int deleteidx(int arr[], int idx)
-{
-	return 0;
-}
+//	was unable to get the following functions to work in a separate file (kept getting
+//	memory/heap errors) without using dynamically allocated arrays (which breaks my
+//	preceding functions) so they are instead implemented within the main method.
+/*
+* int resize(int arr[], int newNum)
+* {
+* 	if (sizeof(arr) == 0)
+* 		return -1;
+* 	size_t oldSize = sizeof(arr) / sizeof(arr[0]);
+* 	cout << oldSize << endl;
+* 	size_t newSize = oldSize + 1;
+* 	int* newArr = new int[newSize];
+*
+* 	memcpy(newArr, arr, sizeof(oldSize));
+* 	//for (int i = 0; i < oldSize; i++)
+* 	//	newArr[i] = arr[i];
+* 	//cout << newNum;
+*
+* 	newArr[newSize - 1] = newNum;
+* 	cout << newArr[newSize - 1] << endl;
+* 	//delete[] arr;
+* 	arr = newArr;
+* 	delete[] newArr;
+* 	return 0;
+* }
+*
+* int replaceWithZero(int arr[], int idx)
+* {
+* 	if (sizeof(arr) == 0)
+* 		return -1;
+* 	arr[idx] = 0;
+* 	return 0;
+* }
+*
+* int deleteidx(int arr[], int idx)
+* {
+* 	return 0;
+* }
+*/

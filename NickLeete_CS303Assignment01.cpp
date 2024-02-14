@@ -4,18 +4,25 @@
 #include <iostream>
 #include <fstream>
 #include <string>
-using namespace std;
 #include "functions.h"
+using namespace std;
 
 int main()
 {
+    //  get filename from user
+    string fileName;
+    cout << "Please enter the name of the input file.\n> ";
+    cin >> fileName;
+
+    //  read input file
     ifstream inFile;
-    inFile.open("A1input.txt");
+    inFile.open(fileName);
     if (!inFile.is_open()) {
-        cout << "Could not open \"A1input.txt\"" << endl;
+        cout << "Could not open " << fileName << endl;
         return 1;
     }
 
+    //  create array and populate from input file
     int arr[100]{};
     int arrIndx = 0;
     string temp;
@@ -24,15 +31,38 @@ int main()
         arr[arrIndx] = stoi(temp);
         arrIndx += 1;
     }
-
-    for (int i = 0; i < size(arr); i++)
-        cout << arr[i] << " ";
-
-    replaceAtIdx(arr, 4, 101);
-
-    for (int i = 0; i < size(arr); i++)
-        cout << arr[i] << " ";
-
     inFile.close();
+   
+    cout << "\nArray:" << endl;
+    printArray(arr, size(arr));
+    
+    cout << "Please pick an operation: " << endl;
+    cout << " 1 : Print the array\n 2 : Find the index of an item within the array" << endl;
+    cout << " 2 : Replace the value at an index with another value\n 3 : Add an index and value to the end of the array" << endl;
+    cout << " 4 : Remove a value from the array\n Q : Quit the program\n> ";
+
+    
+    string userIn;
+    while (true) {
+        cin >> userIn;
+        cout << "\n";
+        if (userIn == "q" || userIn == "Q") {
+            break;
+        }
+        else if (userIn == "1")
+            printArray(arr, size(arr));
+        else if (userIn == "2") {
+            findIndxLoop:
+                cout << "\nEnter an integer to search for:\n> ";
+                cin >> userIn;
+                try {
+                    int usIn = stoi(userIn);
+                }
+                catch (...) {
+                    cout << "\nPlease enter a valid option." << endl;
+                    goto findIndxLoop;
+                }
+        }
+    }
     return 0;
 }
