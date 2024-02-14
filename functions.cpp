@@ -37,9 +37,7 @@ int replaceAtIdx(int arr[], int idx, int newNum)
 	return 0;
 }
 
-//	was unable to get the following functions to work in a separate file (kept getting
-//	memory/heap errors) without using dynamically allocated arrays (which breaks my
-//	preceding functions) so they are instead implemented within the main method.
+//	As stated in main(), could not get working without some kind of memory heap error.
 /*
 * int resize(int arr[], int newNum)
 * {

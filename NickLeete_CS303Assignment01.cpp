@@ -43,8 +43,10 @@ int main()
     while (true) {
         cout << "Please pick an operation: " << endl;
         cout << " 1 : Print the array\n 2 : Find the index of an item within the array" << endl;
-        cout << " 3 : Replace the value at an index with another value\n 4 : Add an index and value to the end of the array" << endl;
-        cout << " 5 : Remove a value from the array\n Q : Quit the program\n> ";
+        cout << " 3 : Replace the value at an index with another value" << endl;
+        //cout << " 4 : Add an index and value to the end of the array" << endl;
+        //cout << " 5 : Remove a value from the array" << endl;
+        cout << " Q: Quit the program\n > ";
         
         cin >> userIn;
         cout << "\n" << endl;
@@ -118,6 +120,10 @@ int main()
                 cout << "Error: The array is empty." << endl;
             }
         }
+        
+        //  Could not get working without some kind of memory heap error. Internet was no help.
+        //  Dynamic arrays gave me the same issue, as well.
+        /*
         else if (userIn == "4") {
             int addVal = 0;
             while (true) {
@@ -198,6 +204,7 @@ int main()
             delete[] arr;
             *arr = *newArr;
         }
+        */
     }
     return 0;
 }
